@@ -60,9 +60,10 @@ class Game{
                         fill("black");
                         textSize(25);
                         text(allPlayers[plr].name ,x-25,y+25);
-
                          
                      }
+
+
                     
                      //text to display player score.
                      fill("white");
@@ -100,7 +101,17 @@ class Game{
                      
                  }
                  
-                  if (player.index !== null) {
+
+                 if (player.index !== null) {
+                     for (var i = 0; i < fruitGroup.length; i++) { 
+                         if (fruitGroup.get(i).isTouching(players)) { 
+                            fruitGroup.get(i).destroy(); 
+                            player.score =player.score+1; 
+                            player.update(); 
+                        } 
+                    }
+                }
+                  /*f (player.index !== null) {
                      //fill code here, to destroy the objects. (Use the one in the class project 40)
                      for (var i = 0; i < fruitGroup.length; i++) {
                         if (fruitGroup.get(i).isTouching(players)) {
@@ -120,7 +131,7 @@ class Game{
                      });
 
                      player.score =player.score+1;
-                  }
+                  }*/
 
     }
 
